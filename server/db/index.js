@@ -2,12 +2,14 @@ import mysql from 'mysql';
 
 const pool = mysql.createPool({
     connectionLimit: 10,
-    password: '',
-    user: 'root',
+    password: 'lokman',
+    user: 'lokman',
     database: 'bmwv2',
     host: 'localhost',
 });
 
+
+console.log('pool', pool);
 
 let bmwdb = {};
 
