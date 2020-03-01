@@ -101,4 +101,15 @@ bmwdb.clients = () => {
     });
 };
 
+bmwdb.connect = (mail, mdp) => {
+    return new Promise((resolve, reject) => {
+        pool.query(`SELECT * FROM user WHERE mail = ? AND mdp = ?`, [mail, mdp], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results);
+        });
+    });
+};
+
 module.exports = bmwdb;

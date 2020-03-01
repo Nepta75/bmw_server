@@ -85,4 +85,15 @@ rooter.get('/clients', async (req, res, next) => {
     }
 })
 
+
+rooter.get('/connect/:mail/:mdp', async (req, res, next) => {
+    try {
+        const results = await bmwdb.connect();
+        res.json(results);
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
 module.exports = rooter;
