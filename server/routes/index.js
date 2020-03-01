@@ -86,9 +86,9 @@ rooter.get('/clients', async (req, res, next) => {
 })
 
 
-rooter.get('/connect/:mail/:mdp', async (req, res, next) => {
+rooter.post('/connect/', async (req, res, next) => {
     try {
-        const results = await bmwdb.connect();
+        const results = await bmwdb.connect(req.body.mail, req.body.mdp);
         res.json(results);
     } catch (e) {
         console.log(e);
