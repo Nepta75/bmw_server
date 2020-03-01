@@ -112,4 +112,15 @@ bmwdb.connect = (mail, mdp) => {
     });
 };
 
+bmwdb.viewVehicules = (view) => {
+    return new Promise((resolve, reject) => {
+        pool.query(`SELECT * FROM view_veh_${view}`, (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results);
+        });
+    });
+};
+
 module.exports = bmwdb;

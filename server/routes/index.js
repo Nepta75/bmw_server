@@ -73,6 +73,26 @@ rooter.get('/vehicules', async (req, res, next) => {
     }
 })
 
+.get('/view/:view/:params/:value', async (req, res, next) => {
+    try {
+        const results = await bmwdb.viewByParams(req.params.view, req.params.params, req.params.value);
+        res.json(results);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
+.get('/viewvehicules/:view/', async (req, res, next) => {
+    try {
+        const results = await bmwdb.viewVehicules(req.params.view);
+        res.json(results);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
 
 
 rooter.get('/clients', async (req, res, next) => {
