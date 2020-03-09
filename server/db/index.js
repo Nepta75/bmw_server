@@ -116,13 +116,18 @@ bmwdb.addVehicule = (body, type) => {
     const { marque, modele, immatriculation, cylindree, prix, img1, img2, typeBoite, energie, typeVeh } = body;
     return new Promise((resolve, reject) => {
         try {
-            pool.query(`call insert_veh_client(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                [3, marque, modele, '2018-09-24', immatriculation, typeVeh, cylindree, energie, typeBoite, 'bon etat', '', 78500, img1, img2], (err, results) => {
-                if (err) {
-                    return reject(err);
-                }
-                return [{ status: "success" }];
-            });
+            switch (type) {
+                case 'client':
+                pool.query(`call insert_veh_client(3, ${marque}, ${modele}, 2018-09-24, ${immatriculation}, ${typeVeh}, ${cylindree}, 
+                    ${energie}, ${typeBoite}, bon etat, '', 78500, ${img1}, ${img2})`, (err, results) => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    return [{ status: "success" }];
+                });
+                break;
+                default: break;
+            }
         } catch (error) {
             return [{ error }];
         }
