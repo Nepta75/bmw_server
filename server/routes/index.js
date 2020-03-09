@@ -118,7 +118,7 @@ rooter.post('/connect/', async (req, res, next) => {
 
 rooter.put('/addvehicule/:type', async (req, res, next) => {
     try {
-        const results = await bmwdb.addvehicule(req.body[0], req.params.type);
+        const results = await bmwdb.addVehicule(req.body[0], req.params.type);
         res.json(results);
     } catch (e) {
         console.log(e);
