@@ -122,7 +122,7 @@ bmwdb.addVehicule = (body, type) => {
                     if (err) {
                         return reject(err);
                     }
-                    return [{ status: "success" }];
+                    return resolve([{ status: "success" }]);
                 });
                 break;
                 default: break;
