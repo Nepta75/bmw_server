@@ -118,7 +118,7 @@ bmwdb.addVehicule = (body, type) => {
         try {
             switch (type) {
                 case 'client':
-                pool.query(`call insert_veh_client(${idUser}, '${marque}', '${modele}', '${dateImmat}', '${immatriculation}', '${typeVeh}', ${cylindree}, '${energie}', '${typeBoite}', ${etat}, ${info}, ${km}, '${img1}', '${img2}')`, (err, results) => {
+                pool.query(`call insert_veh_client(${idUser}, '${marque}', '${modele}', '${dateImmat}', '${immatriculation}', '${typeVeh}', '${cylindree}', '${energie}', '${typeBoite}', '${etat}', '${info}', '${km}', '${img1}', '${img2}')`, (err, results) => {
                     if (err) {
                         return reject(err);
                     }
