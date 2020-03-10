@@ -125,7 +125,6 @@ bmwdb.addVehicule = (body, type) => {
                     return resolve([{ status: "success" }]);
                 });
                 break;
-                default: break;
 
                 case 'occasion':
                 pool.query(`call insert_veh_client(3, '${marque}', '${modele}', '2018-09-24', '${immatriculation}', '${typeVeh}', ${cylindree}, '${energie}', '${typeBoite}', 'bon etat', '', 78500, '${img1}', '${img2}')`, (err, results) => {
@@ -135,7 +134,6 @@ bmwdb.addVehicule = (body, type) => {
                     return resolve([{ status: "success" }]);
                 });
                 break;
-                default: break;
 
                 case 'neuf':
                 pool.query(`call insert_veh_client(3, '${marque}', '${modele}', '2018-09-24', '${immatriculation}', '${typeVeh}', ${cylindree}, '${energie}', '${typeBoite}', 'bon etat', '', 78500, '${img1}', '${img2}')`, (err, results) => {
@@ -145,7 +143,6 @@ bmwdb.addVehicule = (body, type) => {
                     return resolve([{ status: "success" }]);
                 });
                 break;
-                default: break;
             }
         } catch (error) {
             return [{ error }];
