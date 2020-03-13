@@ -9,6 +9,16 @@ rooter.get('/', (req, res, next) => {
 
 console.log('bmwdb', bmwdb);
 
+rooter.get('/getdashboard', async (req, res, next) => {
+    try {
+        const results = await bmwdb.getdashboard();
+        res.json(results);
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
 rooter.get('/vehicules', async (req, res, next) => {
     try {
         const results = await bmwdb.vehicules();

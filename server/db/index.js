@@ -13,6 +13,27 @@ console.log('pool', pool);
 
 let bmwdb = {};
 
+bmwdb.getdashboard = () => {
+    return new Promise((resolve, reject) => {
+        pool.query(`SELECT
+        (SELECT COUNT(*) FROM view_devis) as devis,
+        (SELECT COUNT(*) FROM view_veh_neuf) as vehiculeNeuf,
+        (SELECT COUNT(*) FROM view_veh_occas) as vehiculeOccasion,
+        (SELECT COUNT(*) FROM view_veh_client) as vehiculeClient,
+        (SELECT COUNT(*) FROM view_essayer) as essai,
+        (SELECT COUNT(*) FROM view_client) as client,
+        (SELECT COUNT(*) FROM view_technicien) as technicien,
+        (SELECT COUNT(*) FROM view_admin) as admin,
+        (SELECT COUNT(*) FROM vehicule) as vehicules,
+        (SELECT COUNT(*) FROM user) as users;`, (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(results);
+        });
+    });
+};
+
 bmwdb.vehicules = () => {
     return new Promise((resolve, reject) => {
         pool.query(`SELECT * FROM vehicule`, (err, results) => {
