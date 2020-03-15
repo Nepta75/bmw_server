@@ -45,6 +45,17 @@ bmwdb.vehicules = () => {
     });
 };
 
+bmwdb.deleteVehicule = (id) => {
+    return new Promise((resolve, reject) => {
+        pool.query(`DELETE FROM vehicule WHERE id_vehicule = ?`, [id], (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(results);
+        });
+    });
+};
+
 bmwdb.vehicule = (id) => {
     return new Promise((resolve, reject) => {
         pool.query(`SELECT * FROM vehicule where id_vehicule = ?`, [id], (err, results) => {
