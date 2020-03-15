@@ -19,7 +19,7 @@ rooter.get('/getdashboard', async (req, res, next) => {
     }
 })
 
-rooter.get('/vehicules', async (req, res, next) => {
+.get('/vehicules', async (req, res, next) => {
     try {
         const results = await bmwdb.vehicules();
         res.json(results);
@@ -29,7 +29,7 @@ rooter.get('/vehicules', async (req, res, next) => {
     }
 })
 
-rooter.delete('/deletevehicule/:id', async (req, res, next) => {
+.delete('/deletevehicule/:id', async (req, res, next) => {
     try {
         const results = await bmwdb.deleteVehicule(req.params.id);
         res.json(results);
