@@ -29,9 +29,9 @@ rooter.get('/vehicules', async (req, res, next) => {
     }
 })
 
-rooter.delete('/deletevehicule', async (req, res, next) => {
+rooter.delete('/deletevehicule/:id', async (req, res, next) => {
     try {
-        const results = await bmwdb.deleteVehicule(req.body.id);
+        const results = await bmwdb.deleteVehicule(req.params.id);
         res.json(results);
     } catch(e) {
         console.log(e);
