@@ -47,11 +47,11 @@ bmwdb.vehicules = () => {
 
 bmwdb.deleteVehiculeNeuf = (id) => {
     return new Promise((resolve, reject) => {
-        pool.query(`DELETE FROM vehicule WHERE id_vehicule = ?`, [id], (err, results) => {
+        pool.query(`DELETE FROM vehicule_neuf WHERE id_vehicule = ?`, [id], (err, results) => {
             if (err) {
                 return reject(err);
             }
-            pool.query(`DELETE FROM vehicule_neuf WHERE id_vehicule = ?`, [id], (err, results) => {
+            pool.query(`DELETE FROM vehicule WHERE id_vehicule = ?`, [id], (err, results) => {
                 return resolve(results);
             });
         });
@@ -60,11 +60,11 @@ bmwdb.deleteVehiculeNeuf = (id) => {
 
 bmwdb.deleteVehiculeOccas = (id) => {
     return new Promise((resolve, reject) => {
-        pool.query(`DELETE FROM vehicule WHERE id_vehicule = ?`, [id], (err, results) => {
+        pool.query(`DELETE FROM vehicule_occasion WHERE id_vehicule = ?`, [id], (err, results) => {
             if (err) {
                 return reject(err);
             }
-            pool.query(`DELETE FROM vehicule_occasion WHERE id_vehicule = ?`, [id], (err, results) => {
+            pool.query(`DELETE FROM vehicule WHERE id_vehicule = ?`, [id], (err, results) => {
                 return resolve(results);
             });
         });
@@ -73,11 +73,11 @@ bmwdb.deleteVehiculeOccas = (id) => {
 
 bmwdb.deleteVehiculeClient = (id) => {
     return new Promise((resolve, reject) => {
-        pool.query(`DELETE FROM vehicule WHERE id_vehicule = ?`, [id], (err, results) => {
+        pool.query(`DELETE FROM vehicule_client WHERE id_vehicule = ?`, [id], (err, results) => {
             if (err) {
                 return reject(err);
             }
-            pool.query(`DELETE FROM vehicule_client WHERE id_vehicule = ?`, [id], (err, results) => {
+            pool.query(`DELETE FROM vehicule WHERE id_vehicule = ?`, [id], (err, results) => {
                 return resolve(results);
             });
         });
