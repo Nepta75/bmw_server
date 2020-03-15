@@ -29,9 +29,31 @@ rooter.get('/getdashboard', async (req, res, next) => {
     }
 })
 
-.delete('/deletevehicule/:id', async (req, res, next) => {
+.delete('/deletevehicule/client/:id', async (req, res, next) => {
     try {
-        const results = await bmwdb.deleteVehicule(req.params.id);
+        const results = await bmwdb.deleteVehiculeClient(req.params.id);
+        res.json(results);
+        console.log(res.json(results));
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
+.delete('/deletevehicule/occas/:id', async (req, res, next) => {
+    try {
+        const results = await bmwdb.deleteVehiculeOccas(req.params.id);
+        res.json(results);
+        console.log(res.json(results));
+    } catch(e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+})
+
+.delete('/deletevehicule/neuf/:id', async (req, res, next) => {
+    try {
+        const results = await bmwdb.deleteVehiculeNeuf(req.params.id);
         res.json(results);
         console.log(res.json(results));
     } catch(e) {
